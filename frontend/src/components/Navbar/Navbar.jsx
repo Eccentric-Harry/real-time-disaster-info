@@ -89,7 +89,7 @@ const Navbar = () => {
             Info
           </button>
           <button
-            onClick={() => navigate('/assistance')}
+            onClick={() => navigate('/support')}
             className="mb-4 text-left px-4 py-3 rounded hover:bg-gray-800 transition duration-200 w-full text-lg"
           >
             Assistance

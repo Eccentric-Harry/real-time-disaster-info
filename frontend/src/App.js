@@ -15,9 +15,9 @@ import ResourceForm from './features/disasters/disasterResource';
 import ReportForm from './features/disasters/disasterReportForm';
 import ActiveIncidents from './features/disasters/activeIncidents'; // Import the new component
 import Support from './pages/support'; // Import the new component
+import InfoPage from './components/Navbar/InfoPage.jsx';// Import the InfoPage component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 
 function App() {
   return (
@@ -48,6 +48,7 @@ function App() {
         {/* New Route for Active Incidents */}
         <Route path="/activeIncidents" element={<ActiveIncidents />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/info" element={<InfoPage />} /> {/* Added InfoPage route */}
       </Route>
     </Routes>
   );
