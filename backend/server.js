@@ -51,9 +51,9 @@ app.use('/disasters', downloadReportRoutes);
 
 // Function to run the Python script
 const runPythonScripts = () => {
-  exec(python `${path.join(__dirname, 'scripts', 'twitter.py')}`, (error, stdout, stderr) => {
+  exec(`python ${path.join(__dirname, 'scripts', 'twitter.py')}`, (error, stdout, stderr) => {
     if (error) {
-      console.error('Error executing Python script:', error);
+      console.error('Error executing Python script:', error.message);
       return;
     }
 
@@ -61,20 +61,21 @@ const runPythonScripts = () => {
     if (tweetCountMatch) {
       const tweetCount = tweetCountMatch[1];
       const message = `ALERT! Action Needed. 
-      Recieved ${tweetCount} Reported Incidents.`;
+      Received ${tweetCount} Reported Incidents.`;
 
-      sendSms(message, '+919305107868') 
+      sendSms(message, '+919305107868')
         .then((sid) => {
           console.log(`SMS sent successfully with SID: ${sid}`);
         })
         .catch((error) => {
-          console.error('Failed to send SMS:', error);
+          console.error('Failed to send SMS:', error.message);
         });
     }
 
     if (stderr) console.error('Python script stderr:', stderr);
   });
 };
+
 
 // Schedule the Python script to run every 5 minutes using node-cron
 cron.schedule('*/5 * * * *', () => {

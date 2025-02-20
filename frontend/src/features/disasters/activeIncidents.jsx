@@ -13,14 +13,14 @@ const ActiveIncidents = () => {
         const token = localStorage.getItem('token');
         if (!token) throw new Error('No token found');
 
-        const response = await axios.get('http://localhost:5000/api/activeIncendents', {
+        const response = await axios.get('http://localhost:5000/api/activeIncidents', {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         });
 
         setIncidents(response.data);
       } catch (err) {
-        console.error('Error fetching incidents:', err);
+        // console.error('Error fetching incidents:', err);
         setError('Failed to fetch incidents data');
       } finally {
         setLoading(false);
