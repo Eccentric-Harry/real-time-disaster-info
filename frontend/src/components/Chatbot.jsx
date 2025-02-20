@@ -107,7 +107,7 @@ const handleUserQuery = async () => {
     lowerMessage.includes("near me hospital") || 
     lowerMessage.includes("close by hospital") || 
     lowerMessage.includes("emergency hospital near me") || 
-    lowerMessage.includes("hospitals around me") || 
+    lowerMessage.includes("hospitals") || 
     lowerMessage.includes("nearby clinics") || 
     lowerMessage.includes("medical centers near me") || 
     lowerMessage.includes("hospital nearby") ||
